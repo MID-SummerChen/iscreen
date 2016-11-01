@@ -1,0 +1,21 @@
+{
+  "generator-fountain-vue": {
+    "version": "1.0.0-rc1",
+    "props": {
+      "resolved": "/Users/chenruby/.nvm/versions/node/v6.0.0/lib/node_modules/generator-fountain-vue/generators/app/index.js",
+      "namespace": "fountain-vue:app",
+      "argv": {
+        "remain": [],
+        "cooked": [],
+        "original": []
+      },
+      "framework": "vue",
+      "modules": "webpack",
+      "css": "styl",
+      "js": "babel",
+      "ci": [],
+      "sample": "techs",
+      "router": "router"
+    }
+  }
+}
