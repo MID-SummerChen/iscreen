@@ -6,26 +6,27 @@
         <div class="navbar-header">
           <!-- Mobile Toggle Menu Button -->
           <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-          <a class="navbar-brand" href="index.html"></a>
+          <!--<a class="navbar-brand" href="/"></a>-->
+          <router-link class="navbar-brand" :to="{ path: '/' }"></router-link>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#" data-nav-section="home"><span>首頁</span></a></li>
+            <li class="active"><router-link :to="{path:'/'}"><span>首頁</span></router-link></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>立即預定</span> <b class="caret"></b></a>
               <ul class="dropdown-menu m_d_m">
-                <li><a href="media_time.html">西門站</a></li>
-                <li><a href="media_time.html">頂好商圈</a></li>
+                <li><router-link :to="{path:'/media-time'}">西門站</router-link></li>
+                <li><router-link :to="{path:'/media-time'}">頂好商圈</router-link></li>
               </ul>
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>會員中心</span> <b class="caret"></b></a>
               <ul class="dropdown-menu m_d_m">
-                <li><a href="member_profile.html">會員資訊</a></li>
-                <li><a href="expen_record.html">消費記錄</a></li>
-                <li><a href="frame_record.html">影格紀錄</a></li>
-                <li><a href="publish_record.html">刊登紀錄</a></li>
-                <li><a href="upload_movies.html">影片上傳</a></li>
+                <li><router-link :to="{path:'/profile'}">會員資訊</router-link></li>
+                <li><router-link :to="{path:'/expen-record'}">消費記錄</router-link></li>
+                <li><router-link :to="{path:'/frame-record'}">影格紀錄</router-link></li>
+                <li><router-link :to="{path:'/publish-record'}">刊登紀錄</router-link></li>
+                <li><router-link :to="{path:'/upload'}">影片上傳</router-link></li>
               </ul>
             </li>
             <li><a class="popup-with-form" href="#myModal" @click.prevent="onLogin"><span>登入</span></a></li>

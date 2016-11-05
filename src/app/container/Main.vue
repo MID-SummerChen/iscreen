@@ -7,27 +7,28 @@
     </div>
 
     <header-component :on-login="onLogin"></header-component>
-    <slider></slider>
-    <ad-stations></ad-stations>
-    <video-slider></video-slider>
+
+    <transition>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
+
     <footer-component></footer-component>
   </div>
 </template>
 <script>
   import Header from '../component/page/home/Header.vue'
   import Footer from '../component/page/home/Footer.vue'
-  import AdStations from '../component/page/home/AdStations.vue'
   import LoginForm from '../component/page/home/LoginForm.vue'
   import ForgetForm from '../component/page/home/ForgetForm.vue'
   import JoinForm from '../component/page/home/JoinForm.vue'
   import MyForm from '../component/widgets/MyForm.vue'
-  import Slider from '../component/page/home/Slider.vue'
-  import VideoSlider from '../component/page/home/VideoSlider.vue'
 
-  import Util from '../utils/util'
+  import apiUtil from '../utils/apiUtil'
 
   export default{
-    mixins: ['Util'],
+    mixins: [apiUtil],
     data(){
       return{
         loginForm: null,
@@ -50,19 +51,19 @@
           name: "login-form",
           title: "登入會員",
           display: {
-            [`phone`]: true,
+            [`account`]: true,
             [`password`]: true,
           },
           value: {
-            [`phone`]: "55555",
-            [`password`]: "1111",
+            [`account`]: "admin@gmail.com",
+            [`password`]: "admin2016",
           },
           placeholder: {
-            [`phone`]: "請輸入手機",
+            [`account`]: "請輸入帳號",
             [`password`]: "請輸入密碼",
           },
           errMsg: {},
-          onSubmit: this.onLoginSubmit,
+          onSubmit: this.onLoginSubmit.bind(this),
           onForget: this.onForget,
           onJoin: this.onJoin
         }
@@ -72,16 +73,16 @@
           name: "forget-form",
           title: "忘記密碼",
           display: {
+            [`email`]: true,
             [`phone`]: true,
-            [`password`]: true,
           },
           value: {
             [`phone`]: "",
             [`password`]: "",
           },
           placeholder: {
+            [`email`]: "請輸入E-mail",
             [`phone`]: "請輸入手機",
-            [`password`]: "請輸入密碼",
           },
           errMsg: {},
           onSubmit: this.onForgetSubmit
@@ -90,18 +91,30 @@
         this.joinForm = {
           id: "join-form",
           name: "join-form",
-          title: "加入會員",
+          title: "註冊會員",
           display: {
+            [`full_name`]: true,
+            [`p_id`]: true,
             [`phone`]: true,
+            [`email`]: true,
             [`password`]: true,
+            [`address`]: true,
           },
           value: {
+            [`full_name`]: "",
+            [`p_id`]: "",
             [`phone`]: "",
+            [`email`]: "",
             [`password`]: "",
+            [`address`]: "",
           },
           placeholder: {
-            [`phone`]: "請輸入手機",
-            [`password`]: "請輸入密碼",
+            [`full_name`]: "真實姓名",
+            [`p_id`]: "身份証字號",
+            [`phone`]: "手機號碼",
+            [`email`]: "E-MAIL",
+            [`password`]: "密  碼",
+            [`address`]: "地  址",
           },
           errMsg: {},
           onSubmit: this.onJoinSubmit
@@ -112,14 +125,40 @@
       getFormData() {
 
       },
-      onLoginSubmit() {
+      async onLoginSubmit(_data) {
+        var data = {
+          id: _data.account,
+          pw: _data.password
+        }
+        var res = await this.api("post","ac/cms/signin",data)
+        if(res.resultCode===10) {
+          $.magnificPopup.close()
+          this.formInit()
+        }
 
       },
-      onForgetSubmit() {
+      async onForgetSubmit() {
+        var data = {
+          id: _data.account,
+          pw: _data.password
+        }
+        var res = await this.api("post","ac/cms/signin",data)
+        if(res.resultCode===10) {
+          $.magnificPopup.close()
+          this.formInit()
+        }
 
       },
-      onJoinSubmit() {
-
+      async onJoinSubmit() {
+        var data = {
+          id: _data.account,
+          pw: _data.password
+        }
+        var res = await this.api("post","ac/cms/signin",data)
+        if(res.resultCode===10) {
+          $.magnificPopup.close()
+          this.formInit()
+        }
       },
       onForget() {
         this.currentForm = "forget"
@@ -131,13 +170,10 @@
     components:{
       headerComponent: Header,
       footerComponent: Footer,
-      AdStations,
       MyForm,
       LoginForm,
       ForgetForm,
       JoinForm,
-      Slider,
-      VideoSlider
     }
   }
 </script>

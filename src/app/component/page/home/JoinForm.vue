@@ -3,7 +3,7 @@
     <h1>{{formData.title}}</h1>
     <fieldset style="border:0;">
       <div v-for="(active,labelKey) in formData.display" class="form-group">
-        <input type="text" class="form-control input-lg" :placeholder="formData.placeholder[labelKey]" tabindex="1" :value="formData.value[labelKey]">
+        <input type="text" class="form-control input-lg" :placeholder="formData.placeholder[labelKey]" tabindex="1" v-model="formData.value[labelKey]">
       </div>
       <div class="span5"></div>
       <div class="form-group">

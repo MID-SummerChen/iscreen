@@ -3,12 +3,12 @@
     <h1>{{formData.title}}</h1>
     <fieldset style="border:0;">
       <div v-for="(active,labelKey) in formData.display" class="form-group">
-        <input type="text" class="form-control input-lg" :placeholder="formData.placeholder[labelKey]" tabindex="1" :value="formData.value[labelKey]">
+        <input type="text" class="form-control input-lg" :placeholder="formData.placeholder[labelKey]" tabindex="1" v-model="formData.value[labelKey]">
       </div>
       <div class="span5"></div>
       <div class="form-group">
         <div class="row">
-          <div class="col-xs-12 col-md-12"><a href="#" class="btn btn-login btn-block btn-lg" @click.prevent="formData.onSubmit">登 入</a></div>
+          <div class="col-xs-12 col-md-12"><a href="#" class="btn btn-login btn-block btn-lg" @click.prevent="formData.onSubmit(formData.value)">登 入</a></div>
         </div>
       </div>
       <div class="form-group">
