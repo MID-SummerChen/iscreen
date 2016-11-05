@@ -11,7 +11,7 @@
                 <div class="fh5co-owl-text">
 
                   <h2 class="fh5co-sub-lead ">簡單方便的廣告系統，幫助中小企業或個人行銷以自動化
-                    低價的方式，達到強大的推廣效果</h3>   <div data-nav-section="tour" class="arrow1 animate-box" data-animate-effect="fadeInDown"><a href="#" data-nav-section="tour"></a></div>
+                    低價的方式，達到強大的推廣效果</h2>   <div data-nav-section="tour" class="arrow1 animate-box" data-animate-effect="fadeInDown"><a class="goto" href="#" data-nav-section="tour"></a></div>
                     <!-- <p class=""><a href="#" data-nav-section="tour" class="btn btn-primary btn-center btn-lg">預定時段</a></p> -->
                 </div>
               </div>

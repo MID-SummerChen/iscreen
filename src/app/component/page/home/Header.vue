@@ -27,14 +27,8 @@
                 <li><a href="publish_record.html">刊登紀錄</a></li>
                 <li><a href="upload_movies.html">影片上傳</a></li>
               </ul>
-
-
             </li>
-
-
-
-
-            <li><a class="popup-with-form" href="#login-form"><span>登入</span></a></li>
+            <li><a class="popup-with-form" href="#myModal" @click.prevent="onLogin"><span>登入</span></a></li>
           </ul>
         </div>
       </nav>
@@ -49,7 +43,8 @@
         msg:'hello vue'
       }
     },
-    components:{
+    props:{
+      onLogin: Function
     }
   }
 </script>
