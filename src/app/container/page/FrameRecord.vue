@@ -179,7 +179,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
 
@@ -189,7 +189,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
                     </tr>
@@ -198,7 +198,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
                     </tr>
@@ -207,7 +207,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
 
@@ -217,7 +217,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
                     </tr>
@@ -225,7 +225,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
                     </tr>
@@ -233,7 +233,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
                     </tr>
@@ -241,7 +241,7 @@
                       <td>頂好</td>
                       <td> 105 / 12 / 02</td>
                       <td>12 格 共 180秒</td>
-                      <td class="lists"><button type="" data-mfp-src="#record-form" class="btn btn-is btn-sm popup-with-form">明細</button></td>
+                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
 
 
                     </tr>
@@ -287,14 +287,16 @@
 <script>
 
   import apiUtil from '../../utils/apiUtil'
+  import comUtil from '../../utils/comUtil'
 
   export default{
-    mixins: [apiUtil],
+    mixins: [apiUtil,comUtil],
     data(){
       return{
       }
     },
     mounted() {
+
     },
     methods: {
 

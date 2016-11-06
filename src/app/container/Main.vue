@@ -6,7 +6,7 @@
       <join-form v-show="currentForm === 'join'" :form-data="joinForm"></join-form>
     </div>
 
-    <header-component :on-login="onLogin"></header-component>
+    <header-component :on-login="onLogin" :is-login="isLogin" :on-logout="onLogout"></header-component>
 
     <transition>
       <keep-alive>
@@ -34,7 +34,14 @@
         loginForm: null,
         forgetForm: null,
         joinForm: null,
-        currentForm: "login"
+        currentForm: "login",
+        isLogin: false,
+      }
+    },
+    beforeMount() {
+      console.log(sessionStorage.getItem('isLogin'))
+      if(sessionStorage.getItem('isLogin')){
+        this.isLogin = true
       }
     },
     mounted() {
@@ -42,8 +49,17 @@
     },
     methods: {
       onLogin() {
-        console.log("onLogin")
+        console.log("Login")
         this.currentForm = "login"
+      },
+      async onLogout() {
+        console.log("Logout")
+        var res = await this.api("post","ac/app/signout")
+        if(res.resultCode===10){
+          swal("成功登出")
+          sessionStorage.removeItem('isLogin')
+          this.isLogin = false
+        }
       },
       formInit() {
         this.loginForm = {
@@ -122,9 +138,6 @@
 
 
       },
-      getFormData() {
-
-      },
       async onLoginSubmit(_data) {
         var data = {
           id: _data.account,
@@ -132,6 +145,9 @@
         }
         var res = await this.api("post","ac/cms/signin",data)
         if(res.resultCode===10) {
+          this.isLogin = true
+          sessionStorage.setItem('isLogin', '1')
+
           $.magnificPopup.close()
           this.formInit()
         }

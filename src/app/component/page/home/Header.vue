@@ -29,7 +29,10 @@
                 <li><router-link :to="{path:'/upload'}">影片上傳</router-link></li>
               </ul>
             </li>
-            <li><a class="popup-with-form" href="#myModal" @click.prevent="onLogin"><span>登入</span></a></li>
+            <li>
+              <a v-if="isLogin" @click.prevent="onLogout"><span>登出</span></a>
+              <a v-else v-popup href="#myModal" @click.prevent="onLogin"><span>登入</span></a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -37,19 +40,25 @@
     </div>
   </header>
 </template>
+
 <script>
+  import comUtil from '../../../utils/comUtil'
   export default{
+    mixins: [comUtil],
     data(){
       return{
         msg:'hello vue'
       }
     },
     props:{
-      onLogin: Function
+      onLogin: Function,
+      onLogout: Function,
+      isLogin: Boolean,
     }
   }
 </script>
 
-<style lang="stylus">
-
+<style lang="stylus" scoped>
+  ul > li > a
+    cursor: pointer
 </style>

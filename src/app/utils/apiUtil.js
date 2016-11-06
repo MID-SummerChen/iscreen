@@ -56,9 +56,11 @@ export default {
       console.log(this.isLoading)
     },
     onReqSuccess(res) {
-      var _index = _.findIndex(this.resultCodes,{code: res.resultCode})
-      if(_index > -1){
-        swal(this.resultCodes[_index].msg)
+      if(res.resultCode!==10){
+        var _index = _.findIndex(this.resultCodes,{code: res.resultCode})
+        if(_index > -1){
+          swal(this.resultCodes[_index].msg)
+        }
       }
     },
     onReqError(res) {
