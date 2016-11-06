@@ -2,6 +2,7 @@
 export default {
   data() {
     return {
+      userInfo: null
     };
   },
   computed: {
@@ -13,6 +14,9 @@ export default {
       if(res.resultCode===204){
         this.$router.push("/")
       }
+      if(res.resultCode===10) {
+        this.userInfo = res.response
+      }
 
     }
   },
@@ -23,8 +27,10 @@ export default {
           type: 'inline',
           preloader: false,
           callbacks: {
-            beforeOpen: function() {
-            }
+            beforeOpen: ()=> {
+            },
+            beforeClose: ()=> {
+            },
           }
         });
       }

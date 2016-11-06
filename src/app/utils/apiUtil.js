@@ -49,6 +49,20 @@ export default {
         error: this.onReqError
       });
     },
+    jsonApi(url,data) {
+      return $.ajax({
+        method: "POST",
+        url: `${this.host}/${this.path}/${url}`,
+        data: JSON.stringify(data),
+        contentType: "application/json;charset=UTF-8",
+        xhrFields: {withCredentials: true},
+        crossDomain: true,
+        complete: this.onReqComplete,
+        success: this.onReqSuccess,
+        beforeSend: this.beforeReq,
+        error: this.onReqError
+      });
+    },
     beforeReq() {
       this.isLoading = true
       console.log(this.isLoading)
