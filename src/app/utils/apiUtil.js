@@ -2,6 +2,7 @@ export default {
   data() {
     return {
       host: "http://113.196.112.149:8080",
+      // host: "http://192.168.1.101:8080",
       path: "adps_dev/api",
       isLoading: false,
       resultCodes: [
@@ -34,11 +35,12 @@ export default {
 
   },
   methods: {
-    api(method,url,data) {
+    api(method,url,data,headers) {
       return $.ajax({
         method: method,
         url: `${this.host}/${this.path}/${url}`,
         data,
+        headers,
         xhrFields: {withCredentials: true},
         crossDomain: true,
         complete: this.onReqComplete,

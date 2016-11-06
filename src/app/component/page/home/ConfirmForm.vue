@@ -8,8 +8,8 @@
       <div class="span5"></div>
       <div class="form-group">
         <div class="row">
-          <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-is btn-block btn-lg" @click.prevent="formData.onSubmit(formData.value)">確定註冊</a></div>
-          <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-is btn-block btn-lg">取   消</a></div>
+          <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-is btn-block btn-lg" @click.prevent="formData.onSubmit(formData.value)">確定</a></div>
+          <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-is btn-block btn-lg" @click.prevent="formData.onReSendConfirm(formData.value)">重發驗證碼</a></div>
         </div>
       </div>
     </fieldset>

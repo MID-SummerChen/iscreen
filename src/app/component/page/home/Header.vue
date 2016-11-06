@@ -12,14 +12,14 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><router-link :to="{path:'/'}"><span>首頁</span></router-link></li>
-            <li class="dropdown">
+            <li v-if="isLogin" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>立即預定</span> <b class="caret"></b></a>
               <ul class="dropdown-menu m_d_m">
                 <li><router-link :to="{path:'/media-time'}">西門站</router-link></li>
                 <li><router-link :to="{path:'/media-time'}">頂好商圈</router-link></li>
               </ul>
             </li>
-            <li class="dropdown">
+            <li v-if="isLogin" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>會員中心</span> <b class="caret"></b></a>
               <ul class="dropdown-menu m_d_m">
                 <li><router-link :to="{path:'/profile'}">會員資訊</router-link></li>

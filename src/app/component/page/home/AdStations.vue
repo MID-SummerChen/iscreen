@@ -9,25 +9,26 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-              <a class="Simon" href="media_time.html">
+              <router-link class="Simon" :to="{path:'media-time'}">
                 <div class="overlay">
                   <h1>西門站</h1>
                   <div class="info">有效掌握網路廣告最新訊息，發揮產品優勢 ，提高顧客購買詢問度，創造效益！</div>
                   <div class="btn btn-primary btn-center btn-lg">立即預定</div>
                 </div>
 
-              </a>
+              </router-link>
             </div>
 
 
-            <div class="col-md-6 animate-box" data-animate-effect="fadeInRight"> <a class="topgood" href="media_time.html">
-              <div class="overlay">
-                <h1>頂好商圈</h1>
-                <div class="info">有效掌握網路廣告最新訊息，發揮產品優勢 ，提高顧客購買詢問度，創造效益！</div>
-                <div class="btn btn-primary btn-center btn-lg">立即預定</div>
-              </div>
+            <div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+              <router-link class="Simon" :to="{path:'media-time'}">
+                <div class="overlay">
+                  <h1>頂好商圈</h1>
+                  <div class="info">有效掌握網路廣告最新訊息，發揮產品優勢 ，提高顧客購買詢問度，創造效益！</div>
+                  <div class="btn btn-primary btn-center btn-lg">立即預定</div>
+                </div>
 
-            </a>
+              </router-link>
             </div>
           </div>
         </div>

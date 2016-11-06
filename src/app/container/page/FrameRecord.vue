@@ -295,11 +295,20 @@
       return{
       }
     },
+    beforeMount() {
+
+
+    },
     mounted() {
 
     },
     methods: {
 
+    },
+    beforeRouteEnter (to, from, next) {
+      next(vm => {
+        vm.checkIfLogin()
+      })
     }
   }
 </script>

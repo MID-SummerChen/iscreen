@@ -28,7 +28,7 @@ const router = new VueRouter({
         },
         {
           path: 'frame-record',
-          component: FrameRecord
+          component: FrameRecord,
         },
         {
           path: 'expen-record',

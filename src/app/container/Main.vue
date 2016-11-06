@@ -4,6 +4,7 @@
       <login-form v-show="currentForm === 'login'" :form-data="loginForm"></login-form>
       <forget-form v-show="currentForm === 'forget'" :form-data="forgetForm"></forget-form>
       <join-form v-show="currentForm === 'join'" :form-data="joinForm"></join-form>
+      <confirm-form v-show="currentForm === 'confirm'" :form-data="confirmForm"></confirm-form>
     </div>
 
     <header-component :on-login="onLogin" :is-login="isLogin" :on-logout="onLogout"></header-component>
@@ -23,6 +24,7 @@
   import LoginForm from '../component/page/home/LoginForm.vue'
   import ForgetForm from '../component/page/home/ForgetForm.vue'
   import JoinForm from '../component/page/home/JoinForm.vue'
+  import ConfirmForm from '../component/page/home/ConfirmForm.vue'
   import MyForm from '../component/widgets/MyForm.vue'
 
   import apiUtil from '../utils/apiUtil'
@@ -33,6 +35,7 @@
       return{
         loginForm: null,
         forgetForm: null,
+        confirmForm: null,
         joinForm: null,
         currentForm: "login",
         isLogin: false,
@@ -49,7 +52,6 @@
     },
     methods: {
       onLogin() {
-        console.log("Login")
         this.currentForm = "login"
       },
       async onLogout() {
@@ -59,6 +61,7 @@
           swal("成功登出")
           sessionStorage.removeItem('isLogin')
           this.isLogin = false
+          this.$router.push("/")
         }
       },
       formInit() {
@@ -67,16 +70,16 @@
           name: "login-form",
           title: "登入會員",
           display: {
-            [`account`]: true,
+            [`phone`]: true,
             [`password`]: true,
           },
           value: {
-            [`account`]: "admin@gmail.com",
-            [`password`]: "admin2016",
+            [`phone`]: "",
+            [`password`]: "",
           },
           placeholder: {
-            [`account`]: "請輸入帳號",
-            [`password`]: "請輸入密碼",
+            [`phone`]: "請輸入帳號(手機號碼)",
+            [`password`]: "請輸入密碼(6~17碼)",
           },
           errMsg: {},
           onSubmit: this.onLoginSubmit.bind(this),
@@ -89,16 +92,13 @@
           name: "forget-form",
           title: "忘記密碼",
           display: {
-            [`email`]: true,
             [`phone`]: true,
           },
           value: {
             [`phone`]: "",
-            [`password`]: "",
           },
           placeholder: {
-            [`email`]: "請輸入E-mail",
-            [`phone`]: "請輸入手機",
+            [`phone`]: "請輸入手機號碼",
           },
           errMsg: {},
           onSubmit: this.onForgetSubmit
@@ -109,71 +109,139 @@
           name: "join-form",
           title: "註冊會員",
           display: {
-            [`full_name`]: true,
-            [`p_id`]: true,
+            [`username`]: true,
             [`phone`]: true,
             [`email`]: true,
             [`password`]: true,
-            [`address`]: true,
           },
           value: {
-            [`full_name`]: "",
-            [`p_id`]: "",
+            [`username`]: "",
             [`phone`]: "",
             [`email`]: "",
             [`password`]: "",
-            [`address`]: "",
           },
           placeholder: {
-            [`full_name`]: "真實姓名",
-            [`p_id`]: "身份証字號",
+            [`username`]: "真實姓名",
             [`phone`]: "手機號碼",
             [`email`]: "E-MAIL",
-            [`password`]: "密  碼",
-            [`address`]: "地  址",
+            [`password`]: "密碼(英數不分大小寫6~17碼)",
           },
           errMsg: {},
           onSubmit: this.onJoinSubmit
         }
 
+        this.confirmForm = {
+          id: "confirm-form",
+          name: "confirm-form",
+          title: "會員驗證",
+          display: {
+            [`phone`]: true,
+            [`password`]: true,
+            [`verifyCode`]: true,
+          },
+          value: {
+            [`phone`]: "",
+            [`password`]: "",
+            [`verifyCode`]: "",
+          },
+          placeholder: {
+            [`phone`]: "手機",
+            [`password`]: "密碼",
+            [`verifyCode`]: "請輸入驗證碼",
+          },
+          errMsg: {},
+          onSubmit: this.onConfirmSubmit,
+          onReSendConfirm: this.onReSendConfirm
+        }
 
+
+      },
+      async onConfirmSubmit(_data) {
+        var data = {
+          id: _data.phone,
+          pw: _data.password,
+          verifyCode: _data.verifyCode,
+        }
+        var res = await this.api("post","ac/mb/reg/verify",data)
+        if(res.resultCode===10) {
+          swal("驗證成功")
+          var loginData = {
+            id: _data.phone,
+            pw: _data.password
+          }
+          var loginRes = await this.api("post","ac/app/signin",loginData)
+          if(loginRes.resultCode===10) {
+            this.isLogin = true
+          }
+          this.closeModal()
+        }
+
+      },
+      async onReSendConfirm(_data) {
+        var data = {
+          id: _data.phone,
+        }
+        var res = await this.api("post","ac/mb/reg/send_verify",data)
+        if(res.resultCode===10) {
+          swal("已重發驗證碼至手機")
+        }
       },
       async onLoginSubmit(_data) {
         var data = {
-          id: _data.account,
+          id: _data.phone,
           pw: _data.password
         }
-        var res = await this.api("post","ac/cms/signin",data)
+        var res = await this.api("post","ac/app/signin",data)
         if(res.resultCode===10) {
           this.isLogin = true
           sessionStorage.setItem('isLogin', '1')
 
-          $.magnificPopup.close()
-          this.formInit()
+          this.closeModal()
+        }
+        if(res.resultCode===101) {
+          this.currentForm = "confirm"
+          this.confirmForm.value.phone = this.loginForm.value.phone
+          this.confirmForm.value.password = this.loginForm.value.password
         }
 
       },
-      async onForgetSubmit() {
+      async onForgetSubmit(_data) {
         var data = {
-          id: _data.account,
-          pw: _data.password
+          id: _data.phone
         }
-        var res = await this.api("post","ac/cms/signin",data)
+        var res = await this.api("post","ac/pw",data)
         if(res.resultCode===10) {
-          $.magnificPopup.close()
-          this.formInit()
+          swal("密碼已發送至您的手機")
+          this.closeModal()
         }
 
       },
-      async onJoinSubmit() {
+      async onJoinSubmit(_data) {
         var data = {
-          id: _data.account,
-          pw: _data.password
+          "mbName" : _data.username,
+          "mbEmail" : _data.email,
+          "mbCell" : _data.phone,
+          "mbDeviceType":"WEB",
+          "Account_acSn" : {
+            "acPw" : _data.password,
+            "acId" : _data.phone
+          }
         }
-        var res = await this.api("post","ac/cms/signin",data)
-        if(res.resultCode===10) {
-          $.magnificPopup.close()
-          this.formInit()
+
+        var res = await this.api("POST","ac/mb/reg",JSON.stringify(data),{"Content-Type": "application/json;charset=UTF-8"})
+
+        if(res.resultCode===101) {
+          this.currentForm = "confirm"
+          this.confirmForm.value.phone = this.joinForm.value.phone
+          this.confirmForm.value.password = this.joinForm.value.password
+        }
+
+        if(res.resultCode===208) {
+          swal("您已註冊過，請輸入簡訊驗證碼")
+          this.currentForm = "confirm"
+          this.confirmForm.value.phone = this.joinForm.value.phone
+          this.confirmForm.value.password = this.joinForm.value.password
+          console.log(this.joinForm.value)
         }
       },
       onForget() {
@@ -181,6 +249,10 @@
       },
       onJoin() {
         this.currentForm = "join"
+      },
+      closeModal() {
+        $.magnificPopup.close()
+        this.formInit()
       }
     },
     components:{
@@ -190,6 +262,7 @@
       LoginForm,
       ForgetForm,
       JoinForm,
+      ConfirmForm,
     }
   }
 </script>
