@@ -230,312 +230,22 @@
               <div class="con_time">
 
                 <ul>
+                  <li>
+                    <a :class="{time_yes: myCheck, time_no: true}">
+                      <label>
+                        <input type="checkbox" v-model="myCheck">
+                        <p>00分00</p><p>00分00</p>
+                      </label>
+                    </a>
+                  </li>
                   <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
                   <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="" href=""><p>00分00</p><p>00分00</p></a></li>
+                  <li v-for="n in 30">
+                    <a @click="selectTime(999)">
+                      <p>00分00</p><p>00分00</p>
+                    </a>
+                  </li>
+
                 </ul>
               </div>
 
@@ -556,24 +266,43 @@
     mixins: [apiUtil],
     data(){
       return{
+        mediaCls: null,
+        myCheck: false,
+        frameList: null
       }
+    },
+    beforeMount() {
+      this.mediaCls = this.$route.params.cls
+      this.getData()
     },
     mounted() {
     },
     methods: {
+      async getData() {
+        var data = {
+          medClsId: this.mediaCls
+        }
+        var res = await this.api("get","med",data)
 
+
+        this.frameList = res.response.items
+
+      },
+      selectTime() {
+
+      }
     }
   }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+  ul > li
+    a
+      padding: 0
+    label
+      display: block
+      cursor: pointer
+
+
 
 </style>
-<!--("orderBy", "");-->
-<!--("page", "");-->
-<!--("maxRecords", "");-->
-<!--("recordStatus", "");-->
-<!--("createBy", "");-->
-<!--("startDate", "");-->
-<!--("endDate", "");-->
-

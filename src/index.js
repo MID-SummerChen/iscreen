@@ -13,7 +13,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     { path: '/',
       component: Main,
@@ -39,7 +39,7 @@ const router = new VueRouter({
           component: Profile
         },
         {
-          path: 'media-time',
+          path: 'media-time/:cls?',
           component: MediaTime
         },
         {

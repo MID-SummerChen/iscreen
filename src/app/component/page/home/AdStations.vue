@@ -46,9 +46,17 @@
         msg:'hello vue'
       }
     },
+    computed: {
+      adMedia() {
+
+      }
+    },
     components:{
       headerComponent: Header,
       footerComponent: Footer,
+    },
+    props: {
+      mediaClsList: Array
     }
   }
 </script>

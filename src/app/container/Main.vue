@@ -228,7 +228,7 @@
           }
         }
 
-        var res = await this.api("POST","ac/mb/reg",JSON.stringify(data),{"Content-Type": "application/json;charset=UTF-8"})
+        var res = await this.jsonApi("ac/mb/reg",data)
 
         if(res.resultCode===101) {
           this.currentForm = "confirm"

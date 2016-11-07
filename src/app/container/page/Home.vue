@@ -1,7 +1,7 @@
 <template>
   <div>
     <slider></slider>
-    <ad-stations></ad-stations>
+    <ad-stations v-show="mediaClsList.length>0" :media-cls-list="mediaClsList"></ad-stations>
     <video-slider></video-slider>
   </div>
 </template>
@@ -16,12 +16,21 @@
     mixins: [apiUtil],
     data(){
       return{
+        mediaClsList: []
       }
     },
+    beforeMount() {
+
+    },
     mounted() {
+      this.getData()
     },
     methods: {
-
+      async getData() {
+        var res = await this.api("get","med/cls")
+        this.mediaClsList = res.response.items
+        console.log(this.mediaClsList[0].i18n.medClsName_Lang1)
+      }
     },
     components:{
       AdStations,
