@@ -48,7 +48,7 @@
     },
     computed: {
       adMedia() {
-
+        return this.mediaClsList ? this.mediaClsList[0] : null
       }
     },
     components:{
