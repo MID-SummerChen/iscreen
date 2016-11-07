@@ -2,7 +2,7 @@
   <div>
     <slider></slider>
     {{mediaClsList}}
-    <ad-stations v-if="mediaClsList.length>0" :media-cls-list="mediaClsList"></ad-stations>
+    <ad-stations v-if="foo" :media-cls-list="mediaClsList"></ad-stations>
     <video-slider></video-slider>
   </div>
 </template>
@@ -17,7 +17,8 @@
     mixins: [apiUtil],
     data(){
       return{
-        mediaClsList: []
+        mediaClsList: [],
+        foo: false
       }
     },
     beforeMount() {
@@ -30,6 +31,7 @@
       async getData() {
         var res = await this.api("get","med/cls")
         this.mediaClsList = res.response.items
+        this.foo = true
         console.log(this.mediaClsList[0].i18n.medClsName_Lang1)
         this.contentWayPoint()
       },
