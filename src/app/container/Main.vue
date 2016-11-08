@@ -7,7 +7,7 @@
       <confirm-form v-show="currentForm === 'confirm'" :form-data="confirmForm"></confirm-form>
     </div>
 
-    <header-component :on-login="onLogin" :is-login="isLogin" :on-logout="onLogout"></header-component>
+    <header-component :on-login="onLogin" :is-login="isLogin" :on-logout="onLogout" :media-cls-list="mediaClsList"></header-component>
 
     <transition>
       <keep-alive>
@@ -39,6 +39,7 @@
         joinForm: null,
         currentForm: "login",
         isLogin: false,
+        mediaClsList: null
       }
     },
     beforeMount() {
@@ -49,6 +50,7 @@
     },
     mounted() {
       this.formInit()
+      this.getMediaCls()
     },
     methods: {
       onLogin() {
@@ -63,6 +65,11 @@
           this.isLogin = false
           this.$router.push("/")
         }
+      },
+      async getMediaCls() {
+        var res = await this.api("get","med/cls")
+        this.mediaClsList = res.response.items
+        console.log(this.mediaClsList[0].i18n.medClsName_Lang1)
       },
       formInit() {
         this.loginForm = {

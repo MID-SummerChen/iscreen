@@ -1,12 +1,9 @@
 <template>
   <header role="banner" id="fh5co-header">
     <div class="container">
-      <!-- <div class="row"> -->
       <nav class="navbar navbar-default">
         <div class="navbar-header">
-          <!-- Mobile Toggle Menu Button -->
           <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-          <!--<a class="navbar-brand" href="/"></a>-->
           <router-link class="navbar-brand" :to="{ path: '/' }"></router-link>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -15,8 +12,7 @@
             <li v-if="isLogin" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>立即預定</span> <b class="caret"></b></a>
               <ul class="dropdown-menu m_d_m">
-                <li><router-link :to="{path:'/media-time'}">西門站</router-link></li>
-                <li><router-link :to="{path:'/media-time'}">頂好商圈</router-link></li>
+                <li v-for="cls in mediaClsList"><router-link :to="{path:'/media-time'}">西門站</router-link></li>
               </ul>
             </li>
             <li v-if="isLogin" class="dropdown">
@@ -34,9 +30,9 @@
               <a v-else v-popup href="#myModal" @click.prevent="onLogin"><span>登入</span></a>
             </li>
           </ul>
+
         </div>
       </nav>
-      <!-- </div> -->
     </div>
   </header>
 </template>
@@ -54,6 +50,7 @@
       onLogin: Function,
       onLogout: Function,
       isLogin: Boolean,
+      mediaClsList: Array,
     }
   }
 </script>

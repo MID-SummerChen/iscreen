@@ -1,7 +1,7 @@
 <template>
   <div>
     <slider></slider>
-    {{mediaClsList}}
+    {{foo}}
     <ad-stations v-if="foo" :media-cls-list="mediaClsList"></ad-stations>
     <video-slider></video-slider>
   </div>
