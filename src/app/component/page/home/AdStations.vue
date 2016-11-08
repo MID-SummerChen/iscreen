@@ -7,14 +7,15 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div class="row">
+          <div class="row" v-if="mediaClsList ? mediaClsList.length > 0 : null">
             <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-              <router-link class="Simon" :to="{path:'media-time'}">
+              <router-link class="Simon" :to="{name:'mediaTime',params:{sn: mediaClsList[0].i18n.medSn}}">
                 <div class="overlay">
-                  <h1>西門站</h1>
-                  <div class="info">有效掌握網路廣告最新訊息，發揮產品優勢 ，提高顧客購買詢問度，創造效益！</div>
+                  <h1>{{mediaClsList[0].i18n.medTitle_Lang1}}</h1>
+                  <div class="info">{{mediaClsList[0].i18n.medSubtitle_Lang1}}</div>
                   <div class="btn btn-primary btn-center btn-lg">立即預定</div>
                 </div>
+
 
               </router-link>
             </div>
@@ -40,6 +41,7 @@
 <script>
   import Header from './Header.vue'
   import Footer from './Footer.vue'
+  import SummerMain from '../../../../../static/js/summerMain'
   export default{
     data(){
       return{
@@ -57,6 +59,12 @@
     },
     props: {
       mediaClsList: Array
+    },
+    updated() {
+      SummerMain.all()
+    },
+    methods: {
+
     }
   }
 </script>

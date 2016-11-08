@@ -18,7 +18,13 @@ export default {
         this.userInfo = res.response
       }
 
+    },
+    onRouterChange() {
+      console.log("onRouterChange")
     }
+  },
+  watch: {
+    '$route': 'onRouterChange'
   },
   directives: {
     popup: {

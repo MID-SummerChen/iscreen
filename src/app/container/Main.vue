@@ -28,9 +28,10 @@
   import MyForm from '../component/widgets/MyForm.vue'
 
   import apiUtil from '../utils/apiUtil'
+  import comUtil from '../utils/comUtil'
 
   export default{
-    mixins: [apiUtil],
+    mixins: [apiUtil,comUtil],
     data(){
       return{
         loginForm: null,
@@ -43,7 +44,6 @@
       }
     },
     beforeMount() {
-      console.log(sessionStorage.getItem('isLogin'))
       if(sessionStorage.getItem('isLogin')){
         this.isLogin = true
       }
@@ -67,9 +67,8 @@
         }
       },
       async getMediaCls() {
-        var res = await this.api("get","med/cls")
+        var res = await this.api("get","med")
         this.mediaClsList = res.response.items
-        console.log(this.mediaClsList[0].i18n.medClsName_Lang1)
       },
       formInit() {
         this.loginForm = {

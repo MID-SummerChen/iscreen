@@ -8,11 +8,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><router-link :to="{path:'/'}"><span>首頁</span></router-link></li>
+            <li class="active"><router-link :to="{path: '/'}"><span>首頁</span></router-link></li>
             <li v-if="isLogin" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>立即預定</span> <b class="caret"></b></a>
               <ul class="dropdown-menu m_d_m">
-                <li v-for="cls in mediaClsList"><router-link :to="{path:'/media-time'}">西門站</router-link></li>
+                <li v-for="cls in mediaClsList">
+                  <router-link :to="{name:'mediaTime',params: { sn: cls.i18n.medSn }}">{{cls.i18n.medTitle_Lang1}}</router-link>
+                </li>
               </ul>
             </li>
             <li v-if="isLogin" class="dropdown">

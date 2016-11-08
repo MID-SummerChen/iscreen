@@ -230,14 +230,14 @@
               <div class="con_time">
 
                 <ul>
-                  <li>
-                    <a :class="{time_yes: myCheck, time_no: true}">
-                      <label>
-                        <input type="checkbox" v-model="myCheck">
-                        <p>00分00</p><p>00分00</p>
-                      </label>
-                    </a>
-                  </li>
+                  <!--<li>-->
+                    <!--<a :class="{time_yes: myCheck, time_no: true}">-->
+                      <!--<label>-->
+                        <!--<input type="checkbox" v-model="myCheck">-->
+                        <!--<p>00分00</p><p>00分00</p>-->
+                      <!--</label>-->
+                    <!--</a>-->
+                  <!--</li>-->
                   <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
                   <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
                   <li v-for="n in 30">
@@ -261,9 +261,10 @@
 <script>
 
   import apiUtil from '../../utils/apiUtil'
+  import comUtil from '../../utils/comUtil'
 
   export default{
-    mixins: [apiUtil],
+    mixins: [comUtil,apiUtil],
     data(){
       return{
         mediaCls: null,
@@ -271,22 +272,16 @@
         frameList: null
       }
     },
-    beforeMount() {
-      this.mediaCls = this.$route.params.cls
-      this.getData()
-    },
     mounted() {
+      this.getData()
     },
     methods: {
       async getData() {
+        var res = await this.api("get",`med/${this.$route.params.sn}`)
         var data = {
-          medClsId: this.mediaCls
+          med_sn: this.$route.params.sn
         }
-        var res = await this.api("get","med",data)
-
-
-        this.frameList = res.response.items
-
+        var res = await this.api("get",`med/frm/id/search`,data)
       },
       selectTime() {
 

@@ -10,6 +10,9 @@ import Upload from './app/container/page/Upload.vue';
 
 import './index.styl';
 import VueRouter from 'vue-router';
+import SummerMain from '../static/js/summerMain'
+
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -19,7 +22,7 @@ const router = new VueRouter({
       component: Main,
       children: [
         {
-          path: "",
+          path: '',
           component: Home
         },
         {
@@ -39,7 +42,8 @@ const router = new VueRouter({
           component: Profile
         },
         {
-          path: 'media-time/:cls?',
+          path: 'media-time/:sn',
+          name: 'mediaTime',
           component: MediaTime
         },
         {
@@ -52,6 +56,12 @@ const router = new VueRouter({
 
   ]
 });
+
+
+router.beforeEach((to,from,next)=>{
+  console.log("hi")
+  next()
+})
 
 export default new Vue({
   el: '#root',
