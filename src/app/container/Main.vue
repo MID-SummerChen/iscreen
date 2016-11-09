@@ -49,6 +49,7 @@
       }
     },
     mounted() {
+      this.checkIfLogin()
       this.formInit()
       this.getMediaCls()
     },

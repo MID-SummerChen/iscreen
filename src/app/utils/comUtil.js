@@ -13,6 +13,7 @@ export default {
       var res = await this.api("get","ac/cms/signined")
       if(res.resultCode===204){
         this.$router.push("/")
+        this.isLogin = false
       }
       if(res.resultCode===10) {
         this.userInfo = res.response
@@ -25,6 +26,14 @@ export default {
   },
   watch: {
     '$route': 'onRouterChange'
+  },
+  filters: {
+    date(val) {
+      return moment(val).format("YYYY-MM-DD")
+    },
+    time(val) {
+      return moment(val).format("HH:mm:ss")
+    }
   },
   directives: {
     popup: {

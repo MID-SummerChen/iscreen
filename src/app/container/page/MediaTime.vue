@@ -198,32 +198,22 @@
               <div class="con_bar clearfix">
                 <form class="form-inline">
                   <div class="col-md-3 col-md-offset-1">
-                    <h1>西門站</h1>
+                    <h1>{{mediaTitle}}</h1>
                   </div>
                   <div class="col-md-3 text-center">
-
-                    <select class="form-control">
-                      <option selected>2016/12/25</option>
-                      <option>2016/12/25</option>
-                      <option>2016/12/25</option>
-                      <option>2016/12/25</option>
+                    <select class="form-control" v-model="setDate">
+                      <option value="">請選擇日期</option>
+                      <option v-for="item in dateList" :value="item.date">{{item.date | date}}</option>
                     </select>
-
                   </div>
                   <div class="col-md-3 text-center">
-
-                    <select class="form-control">
-                      <option selected>早上 07:20</option>
-                      <option>早上 07:20</option>
-                      <option>早上 07:20</option>
-                      <option>早上 07:20</option>
-                      <option>早上 07:20</option>
+                    <select class="form-control" v-model="setHour" :disabled="!setDate">
+                      <option value="">請選擇時間</option>
+                      <option v-for="h in hourList" :value="h">{{h | time}}</option>
                     </select>
-
                   </div>
 
                 </form>
-
               </div>
 
 
@@ -231,18 +221,19 @@
 
                 <ul>
                   <!--<li>-->
-                    <!--<a :class="{time_yes: myCheck, time_no: true}">-->
-                      <!--<label>-->
-                        <!--<input type="checkbox" v-model="myCheck">-->
-                        <!--<p>00分00</p><p>00分00</p>-->
-                      <!--</label>-->
-                    <!--</a>-->
+                  <!--<a :class="{time_yes: myCheck, time_no: true}">-->
+                  <!--<label>-->
+                  <!--<input type="checkbox" v-model="myCheck">-->
+                  <!--<p>00分00</p><p>00分00</p>-->
+                  <!--</label>-->
+                  <!--</a>-->
                   <!--</li>-->
-                  <li><a class="time_no" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li><a class="time_yes" href=""><p>00分00</p><p>00分00</p></a></li>
-                  <li v-for="n in 30">
-                    <a @click="selectTime(999)">
-                      <p>00分00</p><p>00分00</p>
+                  <!--<li><a class="time_no"><p>00分00</p><p>00分00</p></a></li>-->
+                  <!--<li><a class="time_yes"><p>00分00</p><p>00分00</p></a></li>-->
+                  <li v-for="f in frameList">
+                    <a class="{time_no: f.recordStatus !== 'VALID', time_yes: f.frmStatus !== 'SALE'}" @click="selectTime(f)">
+                      <p>{{f.frmStartAt | time}}</p>
+                      <p>{{f.frmEndAt | time}}</p>
                     </a>
                   </li>
 
@@ -268,20 +259,63 @@
     data(){
       return{
         mediaCls: null,
-        myCheck: false,
-        frameList: null
+        frameList: null,
+        mediaTitle: "",
+        dateList: [],
+        hourList: [],
+        setDate: "",
+        setHour: "",
+      }
+    },
+    watch: {
+      setDate(date) {
+        var i = _.findIndex(this.dateList,{date})
+        var targetDate = this.dateList[i]
+        var sh = moment(targetDate.startAt)
+        var eh = moment(targetDate.endAt)
+        this.makeHourList(sh,eh)
+        console.log(this.hourList)
+      },
+      setHour(hour) {
+        console.log(hour)
+        this.getMedFrame()
       }
     },
     mounted() {
       this.getData()
     },
     methods: {
+      async getMedFrame() {
+        let data = {
+          med_sn: this.$route.params.sn,
+          date: moment(this.setDate).format("YYYY-MM-DD"),
+          hour: moment(this.setHour).hour(),
+          orderBy: "frmStartAt",
+        }
+        var res = await this.api("get","med/frm/id/search",data)
+        this.frameList = res.response.items
+        console.log(res.response.items)
+      },
+      makeHourList(sh,eh) {
+        this.hourList = []
+        while(sh < eh) {
+          this.hourList.push(+sh)
+          sh = sh.add(1,'hours')
+        }
+      },
       async getData() {
         var res = await this.api("get",`med/${this.$route.params.sn}`)
-        var data = {
-          med_sn: this.$route.params.sn
+        this.mediaTitle = res.response.medTitle
+        let data = {
+          medSn: this.$route.params.sn,
+          medStartDate: moment().add(1, 'days').format("YYYY-MM-DD"),
+          medEndDate: moment().add(61, 'days').format("YYYY-MM-DD"),
+          orderBy: "date"
         }
-        var res = await this.api("get",`med/frm/id/search`,data)
+
+        var res = await this.api("get",`med/date`,data)
+        this.dateList = res.response.items
+
       },
       selectTime() {
 
@@ -294,6 +328,7 @@
   ul > li
     a
       padding: 0
+      cursor: pointer
     label
       display: block
       cursor: pointer
