@@ -177,16 +177,17 @@
 
                   <div class="col-md-7 col-md-offset-1">
                             <span class="Checkout">
-                              已選 <span>12</span> 格
+                              共 <span>{{frameList ? frameList.length : 0}}</span> 格
+                            </span>
+                            <span class="Checkout">
+                              已選 <span>{{selectedFrame.length}}</span> 格
                             </span>
 
                     <span class="Checkout">
-                              共 <span>180</span> 秒
+                              共 <span>{{selectedFrame.length * 15}}</span> 秒
                             </span>
 
-                    <span class="Checkout">
-                              共<span>1200</span> 元
-                            </span>
+                    <span class="Checkout"> 共<span>1200</span> 元 </span>
                   </div>
                   <div class="col-md-3">
                     <button type="submit" data-mfp-src="#Checkout-form" class="btn btn-Checkout popup-with-form">結 帳</button>
@@ -219,26 +220,16 @@
 
               <div class="con_time">
 
-                <ul>
-                  <!--<li>-->
-                  <!--<a :class="{time_yes: myCheck, time_no: true}">-->
-                  <!--<label>-->
-                  <!--<input type="checkbox" v-model="myCheck">-->
-                  <!--<p>00分00</p><p>00分00</p>-->
-                  <!--</label>-->
-                  <!--</a>-->
-                  <!--</li>-->
-                  <!--<li><a class="time_no"><p>00分00</p><p>00分00</p></a></li>-->
-                  <!--<li><a class="time_yes"><p>00分00</p><p>00分00</p></a></li>-->
-                  <li v-for="f in frameList">
-                    <a class="{time_no: f.recordStatus !== 'VALID', time_yes: f.frmStatus !== 'SALE'}" @click="selectTime(f)">
+                <ul v-if="setDate">
+                  <li v-for="(f,i) in frameList">
+                    <a :class="{time_no: f.frmStatus === 'SOLD', time_yes: f.selected}" @click="selectTime(f,i)">
                       <p>{{f.frmStartAt | time}}</p>
                       <p>{{f.frmEndAt | time}}</p>
                     </a>
                   </li>
-
                 </ul>
               </div>
+
 
             </div>
           </div>
@@ -263,18 +254,22 @@
         mediaTitle: "",
         dateList: [],
         hourList: [],
+        selectedFrame: [],
         setDate: "",
         setHour: "",
       }
     },
     watch: {
       setDate(date) {
-        var i = _.findIndex(this.dateList,{date})
-        var targetDate = this.dateList[i]
-        var sh = moment(targetDate.startAt)
-        var eh = moment(targetDate.endAt)
-        this.makeHourList(sh,eh)
-        console.log(this.hourList)
+        console.log(date)
+        if(date) {
+          var i = _.findIndex(this.dateList,{date})
+          var targetDate = this.dateList[i]
+          var sh = moment(targetDate.startAt)
+          var eh = moment(targetDate.endAt)
+          this.makeHourList(sh,eh)
+          console.log(this.hourList)
+        }
       },
       setHour(hour) {
         console.log(hour)
@@ -293,8 +288,10 @@
           orderBy: "frmStartAt",
         }
         var res = await this.api("get","med/frm/id/search",data)
-        this.frameList = res.response.items
-        console.log(res.response.items)
+        this.frameList = _.map(res.response.items,item=>{
+          item.selected = false
+          return item
+        })
       },
       makeHourList(sh,eh) {
         this.hourList = []
@@ -317,8 +314,10 @@
         this.dateList = res.response.items
 
       },
-      selectTime() {
-
+      selectTime(f,i) {
+        console.log(i)
+        this.frameList[i].selected = !this.frameList[i].selected
+        this.selectedFrame.push(this.frameList[i])
       }
     }
   }
@@ -332,7 +331,6 @@
     label
       display: block
       cursor: pointer
-
 
 
 </style>

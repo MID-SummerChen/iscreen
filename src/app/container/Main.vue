@@ -1,5 +1,8 @@
 <template>
   <div>
+    <!--<div class="loadingCover">-->
+      <!--<h3>LOADING... </h3>-->
+    <!--</div>-->
     <div id="myModal" class="white-popup-block mfp-hide">
       <login-form v-show="currentForm === 'login'" :form-data="loginForm"></login-form>
       <forget-form v-show="currentForm === 'forget'" :form-data="forgetForm"></forget-form>
@@ -16,6 +19,7 @@
     </transition>
 
     <footer-component></footer-component>
+
   </div>
 </template>
 <script>
@@ -275,5 +279,17 @@
 </script>
 
 <style lang="stylus">
+  .loadingCover
+    display: flex
+    position: fixed
+    z-index: 9999
+    width: 100%
+    height: 100%
+    background-color: rgba(#000,0.5)
+    align-items: center
+    justify-content: center
+    h3
+      color: #fff
+
 
 </style>

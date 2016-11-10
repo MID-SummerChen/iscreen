@@ -24,8 +24,8 @@
             <div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
               <router-link class="Simon" :to="{path:'media-time'}">
                 <div class="overlay">
-                  <h1>頂好商圈</h1>
-                  <div class="info">有效掌握網路廣告最新訊息，發揮產品優勢 ，提高顧客購買詢問度，創造效益！</div>
+                  <h1>{{mediaClsList[1].i18n.medTitle_Lang1}}</h1>
+                  <div class="info">{{mediaClsList[1].i18n.medSubtitle_Lang1}}</div>
                   <div class="btn btn-primary btn-center btn-lg">立即預定</div>
                 </div>
 

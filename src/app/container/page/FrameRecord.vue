@@ -16,131 +16,14 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
+          <tr v-for="f in uFrmList">
+            <td>{{f.Media_medSn.medTitle}}</td>
+            <td>{{f.frmDate | date}}</td>
+            <td>{{f.frmStartAt | time}} ~ {{f.frmEndAt | time}}</td>
 
-            <td class="status fontG">已播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>00分00 ~ 00分00</td>
-
-            <td class="status fontR">未播</td>
-
-
+            <td v-if="f.MediaDate_medDateId.medDateStatus==='DONE'" class="status fontG">已播</td>
+            <td v-if="f.MediaDate_medDateId.medDateStatus==='DUE'" class="status">已過期</td>
+            <td v-else class="status fontR">未播</td>
           </tr>
 
           </tbody>
@@ -150,7 +33,7 @@
       </fieldset>
       <div class="form-group">
         <div class="col-xs-12 col-md-12 Checkout">
-          共<span>23</span> 格  共 <span>345</span>秒
+          共<span>{{uFrmList.length}}</span> 格  共 <span>{{uFrmList.length * 15}}</span>秒
         </div>
       </div>
 
@@ -167,93 +50,33 @@
                   <table class="table table-hover accounts">
                     <thead>
                     <tr>
-                      <th width="20%">位置</th>
-                      <th width="19%">日期</th>
-                      <th width="36%">格數 / 秒</th>
-                      <th width="25%">明細</th>
+                      <th>位置</th>
+                      <th>日期</th>
+                      <th>格數 / 秒</th>
+                      <!--<th>開始時間</th>-->
+                      <!--<th>結束時間</th>-->
+                      <th>明細</th>
 
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-
+                    <tr v-for="(arr,dateKey) in uFrmDateList">
+                      <td>{{arr[0].Media_medSn.medTitle}}</td>
+                      <td>{{dateKey | date}}</td>
+                      <td>{{arr.length}} 格 共 {{arr.length * 15}}秒</td>
+                      <!--<td>{{f.frmStartAt | time}}</td>-->
+                      <!--<td>{{f.frmEndAt | time}}</td>-->
+                      <td class="lists">
+                        <button v-popup
+                                @click="showFrameDetail(dateKey)"
+                                data-mfp-src="#record-form"
+                                class="btn btn-is btn-sm"
+                        >明細</button>
+                      </td>
                     </tr>
-
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-                    </tr>
-
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-                    </tr>
-
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-
-                    </tr>
-
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-                    </tr>
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-                    </tr>
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-                    </tr>
-                    <tr>
-                      <td>頂好</td>
-                      <td> 105 / 12 / 02</td>
-                      <td>12 格 共 180秒</td>
-                      <td class="lists"><button  v-popup data-mfp-src="#record-form" class="btn btn-is btn-sm">明細</button></td>
-
-
-                    </tr>
-
-
 
                     </tbody>
                   </table>
-
-
-
-
 
                 </div>
 
@@ -293,22 +116,36 @@
     mixins: [apiUtil,comUtil],
     data(){
       return{
+        initUserFrames: [],
+        uFrmList: [],
+        uFrmDateList: [],
+        currentFrame: {},
       }
     },
     beforeMount() {
+      this.checkIfLogin()
 
-
+    },
+    watch: {
+      userInfo(val) {
+        if(val) this.getMediaFrame()
+      }
     },
     mounted() {
-
     },
     methods: {
-
-    },
-    beforeRouteEnter (to, from, next) {
-      next(vm => {
-        vm.checkIfLogin()
-      })
+      showFrameDetail(date) {
+        this.uFrmList = _.filter(this.initUserFrames,{frmDate: date})
+      },
+      async getMediaFrame() {
+        var data = {
+          ac_sn: this.userInfo.acSn
+        }
+        var res = await this.api("get","med/frm/id/search",data)
+        this.initUserFrames = res.response.items
+        this.uFrmDateList = _.groupBy(this.initUserFrames,"frmDate")
+//        var res = await this.api("get","ord")
+      }
     }
   }
 </script>
