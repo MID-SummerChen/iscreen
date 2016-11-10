@@ -12,7 +12,7 @@
             <li v-if="isLogin" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>立即預定</span> <b class="caret"></b></a>
               <ul class="dropdown-menu m_d_m">
-                <li v-for="cls in mediaClsList">
+                <li v-for="cls in mediaList">
                   <router-link :to="{name:'mediaTime',params: { sn: cls.i18n.medSn }}">{{cls.i18n.medTitle_Lang1}}</router-link>
                 </li>
               </ul>
@@ -52,7 +52,7 @@
       onLogin: Function,
       onLogout: Function,
       isLogin: Boolean,
-      mediaClsList: Array,
+      mediaList: Array,
     }
   }
 </script>

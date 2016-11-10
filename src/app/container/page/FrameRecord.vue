@@ -17,12 +17,12 @@
           </thead>
           <tbody>
           <tr v-for="f in uFrmList">
-            <td>{{f.Media_medSn.medTitle}}</td>
+            <td>{{getMedName(f.medSn)}}</td>
             <td>{{f.frmDate | date}}</td>
             <td>{{f.frmStartAt | time}} ~ {{f.frmEndAt | time}}</td>
 
-            <td v-if="f.MediaDate_medDateId.medDateStatus==='DONE'" class="status fontG">已播</td>
-            <td v-if="f.MediaDate_medDateId.medDateStatus==='DUE'" class="status">已過期</td>
+            <td v-if="f.frmStatus==='DONE'" class="status fontG">已播</td>
+            <td v-if="f.frmStatus==='DUE'" class="status">已過期</td>
             <td v-else class="status fontR">未播</td>
           </tr>
 
@@ -41,7 +41,6 @@
     <div class="pagecontainer">
       <div class="container">
         <div class="row">
-
           <div class="col-md-12">
             <div class="con_box">
               <div class="record_con clearfix">
@@ -61,7 +60,8 @@
                     </thead>
                     <tbody>
                     <tr v-for="(arr,dateKey) in uFrmDateList">
-                      <td>{{arr[0].Media_medSn.medTitle}}</td>
+                      <td>{{getMedName(arr[0].medSn)}}</td>
+                      <!--<td>{{arr[0].Media_medSn.medTitle}}</td>-->
                       <td>{{dateKey | date}}</td>
                       <td>{{arr.length}} 格 共 {{arr.length * 15}}秒</td>
                       <!--<td>{{f.frmStartAt | time}}</td>-->
@@ -116,6 +116,7 @@
     mixins: [apiUtil,comUtil],
     data(){
       return{
+        testArr: null,
         initUserFrames: [],
         uFrmList: [],
         uFrmDateList: [],
@@ -125,6 +126,11 @@
     beforeMount() {
       this.checkIfLogin()
 
+    },
+    computed: {
+      mediaList() {
+        return this.$parent.mediaList ? this.$parent.mediaList : null
+      }
     },
     watch: {
       userInfo(val) {
@@ -144,7 +150,13 @@
         var res = await this.api("get","med/frm/id/search",data)
         this.initUserFrames = res.response.items
         this.uFrmDateList = _.groupBy(this.initUserFrames,"frmDate")
+        console.log(this.uFrmDateList)
+        this.testArr = this.uFrmDateList
+
 //        var res = await this.api("get","ord")
+      },
+      getMedName(medSn) {
+       return _.find(this.mediaList,{medSn}).medTitle
       }
     }
   }
