@@ -79,10 +79,10 @@
             [`other_phone`]: "其他電話",
           },
           value: {
-            [`username`]: this.userInfo.Member_mbSn.mbName,
-            [`email`]: this.userInfo.Member_mbSn.mbEmail,
-            [`address`]: "",
-            [`other_phone`]: this.userInfo.Member_mbSn.mbCell,
+            [`username`]: this.userInfo.Member_mbSn.mbName || "",
+            [`email`]: this.userInfo.Member_mbSn.mbEmail || "",
+            [`address`]: this.userInfo.Member_mbSn.mbNation || "",
+            [`other_phone`]: this.userInfo.Member_mbSn.mbCell || "",
           },
           errMsg: {},
           onSubmit: this.onModifySubmit,
@@ -150,6 +150,7 @@
         var mb_sn = this.userInfo.Member_mbSn.mbSn
         var data = {
           mbName: _data.username,
+          mbNation: _data.address,
           mbRegType: "DEFAULT",
           mbDeviceType: "ANDROID",
           mbEmail: _data.email,
