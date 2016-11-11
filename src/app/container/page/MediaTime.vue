@@ -58,9 +58,9 @@
                 <form class="form-inline">
 
                   <div class="col-md-7 col-md-offset-1">
-                            <span class="Checkout">
-                              共 <span>{{frameList ? frameList.length : 0}}</span> 格
-                            </span>
+                            <!--<span class="Checkout">-->
+                              <!--共 <span>{{frameList ? frameList.length : 0}}</span> 格-->
+                            <!--</span>-->
                             <span class="Checkout">
                               已選 <span>{{selectedFrame.length}}</span> 格
                             </span>
@@ -168,6 +168,9 @@
           this.getMedFrame()
         }
       }
+    },
+    beforeMount() {
+      this.checkIfLogin()
     },
     mounted() {
       this.getData()

@@ -73,10 +73,17 @@ export default {
     },
     onReqSuccess(res) {
       if(res.resultCode!==10){
-        var _index = _.findIndex(this.resultCodes,{code: res.resultCode})
-        if(_index > -1){
-          swal(this.resultCodes[_index].msg)
+        if(res.resultCode===204){
+          this.$router.push("/")
+          sessionStorage.removeItem('isLogin')
+          this.isLogin = false
+        }else{
+          var _index = _.findIndex(this.resultCodes,{code: res.resultCode})
+          if(_index > -1){
+            swal(this.resultCodes[_index].msg)
+          }
         }
+
       }
     },
     onReqError(res) {

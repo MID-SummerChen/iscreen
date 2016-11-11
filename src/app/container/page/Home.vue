@@ -24,11 +24,8 @@
         return this.$parent.mediaClsList ? this.$parent.mediaClsList : null
       }
     },
-    mounted() {
-      console.log("m")
-    },
-    updated() {
-      console.log("u")
+    beforeMount() {
+      this.checkIfLogin()
     },
     components:{
       AdStations,

@@ -11,13 +11,7 @@ export default {
   methods: {
     async checkIfLogin() {
       var res = await this.api("get","ac/cms/signined")
-      if(res.resultCode===204){
-        this.$router.push("/")
-        this.isLogin = false
-      }
-      if(res.resultCode===10) {
-        this.userInfo = res.response
-      }
+      if(res.resultCode===10) this.userInfo = res.response
 
     },
     onRouterChange() {
