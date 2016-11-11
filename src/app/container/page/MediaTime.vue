@@ -2,7 +2,7 @@
   <div>
     <form id="Checkout-form" class="white-popup-block mfp-hide">
       <h1>已選擇時段</h1>
-      <fieldset style="border:0;">
+      <fieldset>
 
         <table class="table table-hover accounts">
           <thead>
@@ -22,130 +22,10 @@
             <td>12 格 共 180秒</td>
             <td class="t-color4">1200元</td>
             <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
-          </tr>
-          <tr>
-            <td>頂好</td>
-            <td> 105 / 12 / 02</td>
-            <td>12 格 共 180秒</td>
-            <td class="t-color4">1200元</td>
-            <td class=""><button type="button" class="btn btn-is btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-
-
           </tr>
 
           </tbody>
         </table>
-
 
       </fieldset>
       <div class="form-group">
@@ -166,6 +46,8 @@
         </div>
       </div>
     </form>
+
+
     <div class="pagecontainer">
       <div class="container">
         <div class="row">
@@ -187,10 +69,15 @@
                               共 <span>{{selectedFrame.length * 15}}</span> 秒
                             </span>
 
-                    <span class="Checkout"> 共<span>1200</span> 元 </span>
+                    <span class="Checkout"> 共<span>{{ selectedFrame.length * medUnitPrice }}</span> 元 </span>
                   </div>
                   <div class="col-md-3">
-                    <button type="submit" data-mfp-src="#Checkout-form" class="btn btn-Checkout popup-with-form">結 帳</button>
+                    <button type="submit"
+                            data-mfp-src="#Checkout-form"
+                            v-popup
+                            class="btn btn-Checkout popup-with-form"
+                            @click="groupByDate"
+                    >結 帳</button>
                   </div>
 
                 </form>
@@ -222,7 +109,7 @@
 
                 <ul v-if="setDate">
                   <li v-for="(f,i) in frameList">
-                    <a :class="{time_no: f.frmStatus === 'SOLD', time_yes: f.selected}" @click="selectTime(f,i)">
+                    <a :class="{time_no: f.frmStatus === 'SOLD', time_yes: f.selected}" @click="selectTime(f,i,f.frmStatus)">
                       <p>{{f.frmStartAt | time}}</p>
                       <p>{{f.frmEndAt | time}}</p>
                     </a>
@@ -255,25 +142,31 @@
         dateList: [],
         hourList: [],
         selectedFrame: [],
+        medUnitPrice: 0,
         setDate: "",
         setHour: "",
       }
     },
+    computed: {
+      selectedFrame() {
+        return _.filter(this.frameList,{selected: true})
+      }
+    },
     watch: {
       setDate(date) {
-        console.log(date)
+        this.setHour = ""
         if(date) {
           var i = _.findIndex(this.dateList,{date})
           var targetDate = this.dateList[i]
           var sh = moment(targetDate.startAt)
           var eh = moment(targetDate.endAt)
           this.makeHourList(sh,eh)
-          console.log(this.hourList)
         }
       },
       setHour(hour) {
-        console.log(hour)
-        this.getMedFrame()
+        if(hour) {
+          this.getMedFrame()
+        }
       }
     },
     mounted() {
@@ -303,6 +196,7 @@
       async getData() {
         var res = await this.api("get",`med/${this.$route.params.sn}`)
         this.mediaTitle = res.response.medTitle
+        this.medUnitPrice = res.response.medUnitPrice
         let data = {
           medSn: this.$route.params.sn,
           medStartDate: moment().add(1, 'days').format("YYYY-MM-DD"),
@@ -314,10 +208,15 @@
         this.dateList = res.response.items
 
       },
-      selectTime(f,i) {
-        console.log(i)
-        this.frameList[i].selected = !this.frameList[i].selected
-        this.selectedFrame.push(this.frameList[i])
+      selectTime(f,i,status) {
+        if(status!=='SOLD'){
+          this.frameList[i].selected = !this.frameList[i].selected
+        }
+
+      },
+      groupByDate() {
+        var arr = _.keyBy(this.selectedFrame,"frmDate")
+        console.log(arr)
       }
     }
   }
@@ -328,6 +227,8 @@
     a
       padding: 0
       cursor: pointer
+      &.time_no
+        cursor: default
     label
       display: block
       cursor: pointer
