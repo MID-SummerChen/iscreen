@@ -7,12 +7,12 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div class="row" v-if="mediaClsList ? mediaClsList.length > 0 : null">
+          <div class="row" v-if="mediaList ? mediaList.length > 0 : null">
             <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-              <router-link class="Simon" :to="{name:'mediaTime',params:{sn: mediaClsList[0].i18n.medSn}}">
+              <router-link class="Simon" :to="{name:'mediaTime',params:{sn: mediaList[0].i18n.medSn}}">
                 <div class="overlay">
-                  <h1>{{mediaClsList[0].i18n.medTitle_Lang1}}</h1>
-                  <div class="info">{{mediaClsList[0].i18n.medSubtitle_Lang1}}</div>
+                  <h1>{{mediaList[0].i18n.medTitle_Lang1}}</h1>
+                  <div class="info">{{mediaList[0].i18n.medSubtitle_Lang1}}</div>
                   <div class="btn btn-primary btn-center btn-lg">立即預定</div>
                 </div>
 
@@ -22,10 +22,10 @@
 
 
             <div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-              <router-link class="Simon" :to="{path:'media-time'}">
+              <router-link class="Simon" :to="{name:'mediaTime',params:{sn: mediaList[1].i18n.medSn}}">
                 <div class="overlay">
-                  <h1>{{mediaClsList[1].i18n.medTitle_Lang1}}</h1>
-                  <div class="info">{{mediaClsList[1].i18n.medSubtitle_Lang1}}</div>
+                  <h1>{{mediaList[1].i18n.medTitle_Lang1}}</h1>
+                  <div class="info">{{mediaList[1].i18n.medSubtitle_Lang1}}</div>
                   <div class="btn btn-primary btn-center btn-lg">立即預定</div>
                 </div>
 
@@ -50,7 +50,7 @@
     },
     computed: {
       adMedia() {
-        return this.mediaClsList ? this.mediaClsList[0] : null
+        return this.mediaList ? this.mediaList[0] : null
       }
     },
     components:{
@@ -58,7 +58,10 @@
       footerComponent: Footer,
     },
     props: {
-      mediaClsList: Array
+      mediaList: Array
+    },
+    mounted() {
+      console.log(this.mediaList)
     },
     updated() {
       SummerMain.all()

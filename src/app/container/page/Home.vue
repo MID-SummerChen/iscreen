@@ -1,7 +1,7 @@
 <template>
   <div>
     <slider></slider>
-    <ad-stations :media-cls-list="mediaClsList"></ad-stations>
+    <ad-stations :media-list="mediaList"></ad-stations>
     <video-slider></video-slider>
   </div>
 </template>
@@ -20,8 +20,8 @@
       return {}
     },
     computed: {
-      mediaClsList() {
-        return this.$parent.mediaClsList ? this.$parent.mediaClsList : null
+      mediaList() {
+        return this.$parent.mediaList ? this.$parent.mediaList : null
       }
     },
     beforeMount() {
