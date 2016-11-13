@@ -14,6 +14,9 @@ import SummerMain from '../static/js/summerMain'
 
 
 Vue.use(VueRouter);
+var VueCookie = require('vue-cookie');
+// Tell Vue to use the plugin
+Vue.use(VueCookie);
 
 const router = new VueRouter({
   // mode: 'history',

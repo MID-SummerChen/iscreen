@@ -206,6 +206,7 @@
           this.isLogin = true
           sessionStorage.setItem('isLogin', '1')
 
+
           this.closeModal()
         }
         if(res.resultCode===101) {

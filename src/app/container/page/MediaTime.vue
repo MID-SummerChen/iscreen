@@ -147,14 +147,11 @@
         setHour: "",
       }
     },
-    computed: {
-      selectedFrame() {
-        return _.filter(this.frameList,{selected: true})
-      }
-    },
     watch: {
+      selectedFrame(val) {
+        sessionStorage.setItem("cart", JSON.stringify(val))
+      },
       setDate(date) {
-        this.setHour = ""
         if(date) {
           var i = _.findIndex(this.dateList,{date})
           var targetDate = this.dateList[i]
@@ -171,6 +168,9 @@
     },
     beforeMount() {
       this.checkIfLogin()
+      if(sessionStorage.getItem("cart")){
+        this.selectedFrame = JSON.parse(sessionStorage.getItem("cart"))
+      }
     },
     mounted() {
       this.getData()
@@ -188,6 +188,15 @@
           item.selected = false
           return item
         })
+        var cart = JSON.parse(sessionStorage.getItem("cart"))
+        _.each(cart,item=>{
+          _.each(this.frameList,frm=>{
+            if(item.frmId === frm.frmId){
+              frm.selected = true
+            }
+          })
+        })
+
       },
       makeHourList(sh,eh) {
         this.hourList = []
@@ -195,6 +204,7 @@
           this.hourList.push(+sh)
           sh = sh.add(1,'hours')
         }
+        this.setHour = this.hourList[0]
       },
       async getData() {
         var res = await this.api("get",`med/${this.$route.params.sn}`)
@@ -214,6 +224,13 @@
       selectTime(f,i,status) {
         if(status!=='SOLD'){
           this.frameList[i].selected = !this.frameList[i].selected
+          if(this.frameList[i].selected){
+            this.selectedFrame = _.concat(this.selectedFrame,[this.frameList[i]])
+          }else{
+            this.selectedFrame = _.filter(this.selectedFrame,frm=>{
+              return frm.frmId !== this.frameList[i].frmId
+            })
+          }
         }
 
       },
